@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  optimal.api:
+    image: ${DOCKER_REGISTRY-}optimalapi
+    build:
+      context: .
+      dockerfile: Optimal.API/Dockerfile
