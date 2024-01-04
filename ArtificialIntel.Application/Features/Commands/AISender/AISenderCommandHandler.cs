@@ -14,7 +14,7 @@ namespace ArtificialIntel.Application.Features.Commands.AISender
 
         public Task<int> Handle(AISenderCommand request, CancellationToken cancellationToken)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }
