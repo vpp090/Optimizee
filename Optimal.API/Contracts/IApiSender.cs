@@ -4,6 +4,6 @@ namespace Optimal.API.Contracts
 {
     public interface IApiSender
     {
-        Task<ServiceResponse<WorkspaceResponse>> SendAsync(IntroRequest request);
+        Task<ServiceResponse<BaseResponse>> SendAsync(IntroRequest request);
     }
 }

@@ -1,13 +1,42 @@
-﻿using Optimal.API.Contracts;
+﻿using MassTransit;
+using Optimal.API.Contracts;
 using Optimal.API.Entities;
+using OptimalPackage.Events;
+
+using SpecMapperR;
 
 namespace Optimal.API.Services
 {
     public class ApiSender : IApiSender
     {
-        public async Task<ServiceResponse<WorkspaceResponse>> SendAsync(IntroRequest request)
+        private ISpecialMapper _mapper;
+        private IPublishEndpoint _publishEndpoint;
+        private ILogger<ApiSender> _logger;
+
+        public ApiSender(ISpecialMapper mapper, IPublishEndpoint endpoint, ILogger<ApiSender> logger)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _publishEndpoint = endpoint;
+            _logger = logger;
+        }
+
+        public async Task<ServiceResponse<BaseResponse>> SendAsync(IntroRequest request)
+        {
+            try
+            {
+                var eventMessage = new OptimalEvent();
+
+                eventMessage.Request = _mapper.MapProperties(request, eventMessage.Request);
+                await _publishEndpoint.Publish(eventMessage);
+
+                return new ServiceResponse<BaseResponse>(new BaseResponse());
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+                return new ServiceResponse<BaseResponse>(ex);
+            }
+           
         }
     }
 }
