@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OptimalAPI", "OptimalAPI", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntel.Application", "ArtificialIntel.Application\ArtificialIntel.Application.csproj", "{5BEF6CB3-0FF0-42CD-BD52-0A3AAF889029}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntel.Repos", "ArtificialIntel.Repos\ArtificialIntel.Repos.csproj", "{110F966C-7AE7-4840-9783-7CE543DA1BBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{5BEF6CB3-0FF0-42CD-BD52-0A3AAF889029}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BEF6CB3-0FF0-42CD-BD52-0A3AAF889029}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BEF6CB3-0FF0-42CD-BD52-0A3AAF889029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{110F966C-7AE7-4840-9783-7CE543DA1BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{110F966C-7AE7-4840-9783-7CE543DA1BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{110F966C-7AE7-4840-9783-7CE543DA1BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{110F966C-7AE7-4840-9783-7CE543DA1BBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{E60AF011-6B6F-4025-A3E3-DB4058DD3FC5} = {D317BDF3-BC43-47CE-B65B-4AE776741A7E}
 		{C18541C8-2629-463E-95FF-BE8F371542AD} = {D317BDF3-BC43-47CE-B65B-4AE776741A7E}
 		{5BEF6CB3-0FF0-42CD-BD52-0A3AAF889029} = {E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}
+		{110F966C-7AE7-4840-9783-7CE543DA1BBE} = {E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CC73431-D978-4F6B-A674-B2B6C4A80627}

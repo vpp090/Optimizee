@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Optimal.API.Contracts;
 using Optimal.API.Entities;
-using OptimalPackage.Requests;
 using System.Net;
 
 namespace Optimal.API.Controllers
@@ -21,7 +20,7 @@ namespace Optimal.API.Controllers
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.Accepted)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<ActionResult<ServiceResponse<BaseResponse>>> SendOptimalRequest([FromBody] IntroRequest request)
+        public async Task<ActionResult<ServiceResponseR.ServiceResponse<BaseResponse>>> SendOptimalRequest([FromBody] IntroRequest request)
         {
 
             var result = await _apiSender.SendAsync(request);
