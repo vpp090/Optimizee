@@ -3,6 +3,7 @@ using Optimal.API.Contracts;
 using Optimal.API.Entities;
 using OptimalPackage.Events;
 using OptimalPackage.Requests;
+using ServiceResponseR;
 using SpecMapperR;
 
 namespace Optimal.API.Services

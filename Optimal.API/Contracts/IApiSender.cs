@@ -1,4 +1,5 @@
 ﻿using Optimal.API.Entities;
+using ServiceResponseR;
 
 namespace Optimal.API.Contracts
 {
