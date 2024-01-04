@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptimalPackage", "CommonPac
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{25036951-3651-4E3B-A3E5-1BD8B6294599}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntel.API", "ArtificialIntel.API\ArtificialIntel.API.csproj", "{A9F1BE9C-16AC-46C0-89EC-D0DAC62D3834}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{25036951-3651-4E3B-A3E5-1BD8B6294599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25036951-3651-4E3B-A3E5-1BD8B6294599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25036951-3651-4E3B-A3E5-1BD8B6294599}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9F1BE9C-16AC-46C0-89EC-D0DAC62D3834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9F1BE9C-16AC-46C0-89EC-D0DAC62D3834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9F1BE9C-16AC-46C0-89EC-D0DAC62D3834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9F1BE9C-16AC-46C0-89EC-D0DAC62D3834}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9831C939-ADA9-4155-BE82-081355828FC6} = {D317BDF3-BC43-47CE-B65B-4AE776741A7E}
 		{314C6B3D-B65D-468B-B664-F7212C1EBADF} = {B2FAF574-F150-447F-AFBC-F8313F96686E}
+		{A9F1BE9C-16AC-46C0-89EC-D0DAC62D3834} = {D317BDF3-BC43-47CE-B65B-4AE776741A7E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CC73431-D978-4F6B-A674-B2B6C4A80627}

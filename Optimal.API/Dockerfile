@@ -8,7 +8,10 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Optimal.API/Optimal.API.csproj", "Optimal.API/"]
+COPY ["CommonPackages/OptimalPackage/OptimalPackage.csproj", "CommonPackages/OptimalPackage/"]
+
 RUN dotnet restore "./Optimal.API/./Optimal.API.csproj"
+
 COPY . .
 WORKDIR "/src/Optimal.API"
 RUN dotnet build "./Optimal.API.csproj" -c $BUILD_CONFIGURATION -o /app/build

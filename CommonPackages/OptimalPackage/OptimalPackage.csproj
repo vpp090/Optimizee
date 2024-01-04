@@ -4,6 +4,9 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <PackageId>OptimalPackageR</PackageId>
+    <Title>OptimalPackageR</Title>
+    <Authors>vpp090</Authors>
   </PropertyGroup>
 
 </Project>
