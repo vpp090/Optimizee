@@ -1,0 +1,32 @@
+﻿using ArtificialIntel.API.Consumers;
+using MassTransit;
+using OptimalPackage.Common;
+
+namespace ArtificialIntel.API.Extensions
+{
+    public static class ServiceExtensions
+    {
+        public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration Configuration)
+        {
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceExtensions).Assembly));
+
+            services.AddMassTransit(config =>
+            {
+                config.AddConsumer<IntroRequestConsumer>();
+
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host(Configuration["EventBusSettings:HostAddress"]);
+
+                    cfg.ReceiveEndpoint(EventBusConstants.OptimalQueue, c =>
+                    {
+                        c.ConfigureConsumer<IntroRequestConsumer>(ctx);
+                    });
+                });
+            });
+
+
+            return services;
+        }
+    }
+}
