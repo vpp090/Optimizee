@@ -1,8 +1,17 @@
 version: '3.4'
 
-services:
+services: 
   optimal.api:
+    container_name: optimal.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "80"
+      - "8000:80"
+
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    ports:
+         - "5672:5672"
+         - "15672:15672"
+ 

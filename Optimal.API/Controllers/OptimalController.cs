@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Optimal.API.Contracts;
 using Optimal.API.Entities;
 
 namespace Optimal.API.Controllers
@@ -7,11 +8,26 @@ namespace Optimal.API.Controllers
     [ApiController]
     public class OptimalController : ControllerBase
     {
+        private readonly IApiSender _apiSender;
+
+        public OptimalController(IApiSender apiSender)
+        {
+            _apiSender = apiSender;
+        }
+
         [HttpPost]
-        public async Task<ActionResult> PostQuestions([FromBody] IntroQuestions questions)
+        public async Task<ActionResult> PostQuestions([FromBody] IntroRequest questions)
         {
 
-            return Ok();
+            var result = await _apiSender.SendAsync(questions);
+
+            if (result == null)
+                return BadRequest();
+
+            if (result.Error != null)
+                return BadRequest(result.Error.ToString());
+
+            return Ok(result);
         }
     }
 }

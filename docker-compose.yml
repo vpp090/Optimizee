@@ -6,3 +6,6 @@ services:
     build:
       context: .
       dockerfile: Optimal.API/Dockerfile
+  
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
