@@ -2,6 +2,7 @@
 using MassTransit;
 using MassTransit.Mediator;
 using OptimalPackage.Events;
+using OptimalPackage.Requests;
 using SpecMapperR;
 
 namespace ArtificialIntel.API.Consumers
@@ -19,8 +20,7 @@ namespace ArtificialIntel.API.Consumers
 
         public async Task Consume(ConsumeContext<OptimalEvent> context)
         {
-            AISenderCommand command = new AISenderCommand();
-            command = _mapper.MapProperties(context.Message.Request, command);
+            var command = _mapper.MapProperties<OptimalRequest, AISenderCommand>(context.Message.Request);
 
             await _mediator.Send(command);
         }

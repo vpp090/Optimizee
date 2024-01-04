@@ -2,7 +2,7 @@
 using Optimal.API.Contracts;
 using Optimal.API.Entities;
 using OptimalPackage.Events;
-
+using OptimalPackage.Requests;
 using SpecMapperR;
 
 namespace Optimal.API.Services
@@ -26,7 +26,8 @@ namespace Optimal.API.Services
             {
                 var eventMessage = new OptimalEvent();
 
-                eventMessage.Request = _mapper.MapProperties(request, eventMessage.Request);
+                eventMessage.Request = _mapper.MapProperties<IntroRequest, OptimalRequest>(request);
+
                 await _publishEndpoint.Publish(eventMessage);
 
                 return new ServiceResponse<BaseResponse>(new BaseResponse());
