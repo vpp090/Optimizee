@@ -1,11 +1,18 @@
 version: '3.4'
 
 services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+
   optimal.api:
     image: ${DOCKER_REGISTRY-}optimalapi
     build:
       context: .
       dockerfile: Optimal.API/Dockerfile
-  
-  rabbitmq:
-    image: rabbitmq:3-management-alpine
+
+  artificialintel.api:
+    image: ${DOCKER_REGISTRY-}artificialintelapi
+    build:
+      context: .
+      dockerfile: ArtificialIntel.API/Dockerfile
+
