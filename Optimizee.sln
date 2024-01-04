@@ -13,15 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptimalPackage", "CommonPac
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{25036951-3651-4E3B-A3E5-1BD8B6294599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntel.API", "ArtificialIntel.API\ArtificialIntel.API.csproj", "{A9F1BE9C-16AC-46C0-89EC-D0DAC62D3834}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtificialIntel.API", "ArtificialIntel.API\ArtificialIntel.API.csproj", "{A9F1BE9C-16AC-46C0-89EC-D0DAC62D3834}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AI.API", "AI.API", "{E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OptimalAPI", "OptimalAPI", "{C18541C8-2629-463E-95FF-BE8F371542AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntel.Application", "ArtificialIntel.Application\ArtificialIntel.Application.csproj", "{5BEF6CB3-0FF0-42CD-BD52-0A3AAF889029}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtificialIntel.Application", "ArtificialIntel.Application\ArtificialIntel.Application.csproj", "{5BEF6CB3-0FF0-42CD-BD52-0A3AAF889029}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntel.Repos", "ArtificialIntel.Repos\ArtificialIntel.Repos.csproj", "{110F966C-7AE7-4840-9783-7CE543DA1BBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtificialIntel.Repos", "ArtificialIntel.Repos\ArtificialIntel.Repos.csproj", "{110F966C-7AE7-4840-9783-7CE543DA1BBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntel.Services", "ArtificialIntel.Services\ArtificialIntel.Services.csproj", "{4D0ED6E9-0183-410A-9FAC-7183399445AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{110F966C-7AE7-4840-9783-7CE543DA1BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{110F966C-7AE7-4840-9783-7CE543DA1BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{110F966C-7AE7-4840-9783-7CE543DA1BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D0ED6E9-0183-410A-9FAC-7183399445AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D0ED6E9-0183-410A-9FAC-7183399445AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D0ED6E9-0183-410A-9FAC-7183399445AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D0ED6E9-0183-410A-9FAC-7183399445AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{C18541C8-2629-463E-95FF-BE8F371542AD} = {D317BDF3-BC43-47CE-B65B-4AE776741A7E}
 		{5BEF6CB3-0FF0-42CD-BD52-0A3AAF889029} = {E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}
 		{110F966C-7AE7-4840-9783-7CE543DA1BBE} = {E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}
+		{4D0ED6E9-0183-410A-9FAC-7183399445AE} = {E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CC73431-D978-4F6B-A674-B2B6C4A80627}
