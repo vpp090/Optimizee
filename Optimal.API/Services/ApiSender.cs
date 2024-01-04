@@ -25,9 +25,10 @@ namespace Optimal.API.Services
         {
             try
             {
-                var eventMessage = new OptimalEvent();
-
-                eventMessage.Request = _mapper.MapProperties<IntroRequest, OptimalRequest>(request);
+                var eventMessage = new OptimalEvent
+                {
+                    Request = _mapper.MapProperties<IntroRequest, OptimalRequest>(request)
+                };
 
                 await _publishEndpoint.Publish(eventMessage);
 
