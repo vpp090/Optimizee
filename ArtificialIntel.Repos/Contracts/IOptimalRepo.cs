@@ -1,6 +1,6 @@
 ﻿namespace ArtificialIntel.Repos.Contracts
 {
-    internal interface IOptimalRepo
+    public interface IOptimalRepo
     {
     }
 }

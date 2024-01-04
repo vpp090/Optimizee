@@ -2,6 +2,7 @@
 using MassTransit;
 using OptimalPackage.Common;
 using SpecMapperR;
+using ArtificialIntel.Application.Extensions;
 
 namespace ArtificialIntel.API.Extensions
 {
@@ -9,10 +10,12 @@ namespace ArtificialIntel.API.Extensions
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration Configuration)
         {
+            services.RegisterAppServices();
+
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceExtensions).Assembly));
 
             services.AddScoped<ISpecialMapper, SpecialMapper>();
-
+            
             services.AddMassTransit(config =>
             {
                 config.AddConsumer<IntroRequestConsumer>();
