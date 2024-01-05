@@ -1,22 +1,23 @@
 ﻿using ArtificialIntel.Repos.Contracts;
+using ArtificialIntel.Services.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace ArtificialIntel.Application.Features.Commands.AISender
 {
-    public class AISenderCommandHandler : IRequestHandler<AISenderCommand, int>
+    public class AISenderCommandHandler : IRequestHandler<AISenderCommand, object>
     {
         private readonly ILogger<AISenderCommandHandler> _logger;
-        private readonly IOptimalRepo _repo;
-        public AISenderCommandHandler(ILogger<AISenderCommandHandler> logger, IOptimalRepo repo)
+        private readonly IGptService _gptService;
+        public AISenderCommandHandler(ILogger<AISenderCommandHandler> logger, IOptimalRepo repo, IGptService service)
         {
             _logger = logger;
-            _repo = repo;
+            _gptService = service;
         }
 
-        public Task<int> Handle(AISenderCommand request, CancellationToken cancellationToken)
+        public async Task<object> Handle(AISenderCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return default;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace ArtificialIntel.Application.Features.Commands.AISender
 {
-    public class AISenderCommand : IRequest<int>
+    public class AISenderCommand : IRequest<object>
     {
         public string Topic { get; set; }
         public List<string> Questions { get; set; }

@@ -1,6 +1,5 @@
 ﻿using ArtificialIntel.Application.Features.Commands.AISender;
 using MassTransit;
-using MassTransit.Mediator;
 using OptimalPackage.Events;
 using OptimalPackage.Requests;
 using SpecMapperR;
@@ -9,10 +8,10 @@ namespace ArtificialIntel.API.Consumers
 {
     public class IntroRequestConsumer : IConsumer<OptimalEvent>
     {
-        private readonly IMediator _mediator;
+        private readonly MediatR.IMediator _mediator;
         private readonly ISpecialMapper _mapper;
 
-        public IntroRequestConsumer(IMediator mediator, ISpecialMapper mapper)
+        public IntroRequestConsumer(MediatR.IMediator mediator, ISpecialMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;
@@ -22,7 +21,8 @@ namespace ArtificialIntel.API.Consumers
         {
             var command = _mapper.MapProperties<OptimalRequest, AISenderCommand>(context.Message.Request);
 
-            await _mediator.Send(command);
+            var response = await _mediator.Send(command);
+            await _mediator.Send(response);
         }
     }
 }

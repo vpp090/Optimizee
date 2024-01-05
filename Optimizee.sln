@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtificialIntel.Application
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtificialIntel.Repos", "ArtificialIntel.Repos\ArtificialIntel.Repos.csproj", "{110F966C-7AE7-4840-9783-7CE543DA1BBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntel.Services", "ArtificialIntel.Services\ArtificialIntel.Services.csproj", "{4D0ED6E9-0183-410A-9FAC-7183399445AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtificialIntel.Services", "ArtificialIntel.Services\ArtificialIntel.Services.csproj", "{4D0ED6E9-0183-410A-9FAC-7183399445AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,7 +40,6 @@ Global
 		{314C6B3D-B65D-468B-B664-F7212C1EBADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{314C6B3D-B65D-468B-B664-F7212C1EBADF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{25036951-3651-4E3B-A3E5-1BD8B6294599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25036951-3651-4E3B-A3E5-1BD8B6294599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25036951-3651-4E3B-A3E5-1BD8B6294599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25036951-3651-4E3B-A3E5-1BD8B6294599}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A9F1BE9C-16AC-46C0-89EC-D0DAC62D3834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

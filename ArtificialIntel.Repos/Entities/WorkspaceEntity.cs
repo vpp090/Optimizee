@@ -1,7 +1,12 @@
-﻿namespace ArtificialIntel.Repos.Entities
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace ArtificialIntel.Repos.Entities
 {
-    public class WorskpaceEntity
+    public class WorkspaceEntity
     {
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public string Id { get; set; }
         public string Topic { get; set; }
         public List<string> SubTopics { get; set; }
         public List<Author> Authors { get; set; }

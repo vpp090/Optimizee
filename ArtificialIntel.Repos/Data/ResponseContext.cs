@@ -1,14 +1,14 @@
 ﻿using ArtificialIntel.Repos.Entities;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
-using MongoDB.Driver.Core.Operations;
+
 
 namespace ArtificialIntel.Repos.Data
 {
-    public class CatalogContext : ICatalogContext
+    public class ResponseContext : IResponseContext
     {
         private readonly IConfiguration _configuration;
-        public CatalogContext()
+        public ResponseContext()
         {
            _configuration = new ConfigurationBuilder()
                  .SetBasePath(AppContext.BaseDirectory)
@@ -18,8 +18,8 @@ namespace ArtificialIntel.Repos.Data
             var client = new MongoClient(_configuration["DatabaseSettings:ConnectionString"]);
             var database = client.GetDatabase(_configuration["DatabaseSettings:DatabaseName"]);
 
-            WorkspaceEntities = database.GetCollection<WorskpaceEntity>(_configuration["DatabaseSettings:CollectionName"]);
+            WorkspaceEntities = database.GetCollection<WorkspaceEntity>(_configuration["DatabaseSettings:CollectionName"]);
         }
-        public IMongoCollection<WorskpaceEntity> WorkspaceEntities { get; set; }
+        public IMongoCollection<WorkspaceEntity> WorkspaceEntities { get; set; }
     }
 }

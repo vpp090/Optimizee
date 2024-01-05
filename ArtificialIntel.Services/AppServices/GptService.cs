@@ -2,7 +2,7 @@
 
 namespace ArtificialIntel.Services.AppServices
 {
-    internal class GptSetvice : IGptService
+    public class GptService : IGptService
     {
     }
 }

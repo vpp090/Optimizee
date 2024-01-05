@@ -3,8 +3,8 @@ using MongoDB.Driver;
 
 namespace ArtificialIntel.Repos.Data
 {
-    public interface ICatalogContext
+    public interface IResponseContext
     {
-        IMongoCollection<WorskpaceEntity> WorkspaceEntities { get; }
+        IMongoCollection<WorkspaceEntity> WorkspaceEntities { get; }
     }
 }
