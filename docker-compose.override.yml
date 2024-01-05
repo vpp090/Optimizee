@@ -9,6 +9,14 @@ services:
          - "5672:5672"
          - "15672:15672"
 
+  workspacedb:
+    container_name: workspacedb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
   optimal.api:
     container_name: optimal.api
     environment:
@@ -18,8 +26,13 @@ services:
       - "8000:80"
 
   artificialintel.api:
+    container_name: ai.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=mongodb://workspacedb:27017"
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:
+      - workspacedb
     ports:
-      - "80"
+      - "8001:80"
 

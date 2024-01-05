@@ -22,4 +22,8 @@ RUN dotnet publish "./ArtificialIntel.API.csproj" -c $BUILD_CONFIGURATION -o /ap
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+COPY ["ArtificialIntel.API/appsettings.json", "./"]
+COPY ["ArtificialIntel.API/appsettings.Development.json", "./"]
+
 ENTRYPOINT ["dotnet", "ArtificialIntel.API.dll"]
