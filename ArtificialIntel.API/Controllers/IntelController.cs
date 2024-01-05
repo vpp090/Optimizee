@@ -1,4 +1,5 @@
-﻿using ArtificialIntel.Repos.Entities;
+﻿using ArtificialIntel.Application.Features.Queries.ResponseReader;
+using ArtificialIntel.Repos.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,11 +18,16 @@ namespace ArtificialIntel.API.Controllers
             _mediator = mediator;
         }
 
+        [Route("[action]")]
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<WorkspaceEntity>>> GetAllWorkspaceEntities()
         {
-            throw new NotImplementedException();
+            var query = new WorkspaceListQuery();
+
+            var result = await _mediator.Send(query);
+
+            return Ok(result);
         }
     }
 }

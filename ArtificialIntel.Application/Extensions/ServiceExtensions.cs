@@ -1,4 +1,5 @@
 ﻿using ArtificialIntel.Repos.Contracts;
+using ArtificialIntel.Repos.Data;
 using ArtificialIntel.Repos.Repositories;
 using ArtificialIntel.Services.AppServices;
 using ArtificialIntel.Services.Contracts;
@@ -10,6 +11,7 @@ namespace ArtificialIntel.Application.Extensions
     {
         public static IServiceCollection RegisterAppServices(this IServiceCollection services)
         {
+            services.AddScoped<IResponseContext, ResponseContext>();
             services.AddScoped<IOptimalRepo, OptimalRepository>();
             services.AddScoped<IGptService, GptService>();
 

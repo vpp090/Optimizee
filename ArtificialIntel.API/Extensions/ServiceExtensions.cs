@@ -12,7 +12,7 @@ namespace ArtificialIntel.API.Extensions
         {
             services.RegisterAppServices();
 
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ServiceExtensions).Assembly));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application.Extensions.ServiceExtensions).Assembly));
 
             services.AddScoped<ISpecialMapper, SpecialMapper>();
             

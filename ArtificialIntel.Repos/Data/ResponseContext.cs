@@ -10,6 +10,8 @@ namespace ArtificialIntel.Repos.Data
         private readonly IConfiguration _configuration;
         public ResponseContext()
         {
+            var dir = AppContext.BaseDirectory;
+
            _configuration = new ConfigurationBuilder()
                  .SetBasePath(AppContext.BaseDirectory)
                  .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -19,6 +21,8 @@ namespace ArtificialIntel.Repos.Data
             var database = client.GetDatabase(_configuration["DatabaseSettings:DatabaseName"]);
 
             WorkspaceEntities = database.GetCollection<WorkspaceEntity>(_configuration["DatabaseSettings:CollectionName"]);
+
+            ResponseContextSeeder.SeedData(WorkspaceEntities);
         }
         public IMongoCollection<WorkspaceEntity> WorkspaceEntities { get; set; }
     }

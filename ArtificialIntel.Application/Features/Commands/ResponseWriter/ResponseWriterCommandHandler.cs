@@ -1,10 +1,11 @@
 ﻿using ArtificialIntel.Repos.Contracts;
+using ArtificialIntel.Repos.Entities;
 using MediatR;
 
 
 namespace ArtificialIntel.Application.Features.Commands.ResponseWriter
 {
-    public class ResponseWriterCommandHandler : IRequestHandler<ResponseWriterCommand, int>
+    public class ResponseWriterCommandHandler : IRequestHandler<ResponseWriterCommand, IEnumerable<WorkspaceEntity>>
     {
         private readonly IOptimalRepo _repo;
 
@@ -13,7 +14,7 @@ namespace ArtificialIntel.Application.Features.Commands.ResponseWriter
             _repo = repo;
         }
 
-        public Task<int> Handle(ResponseWriterCommand request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<WorkspaceEntity>> Handle(ResponseWriterCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

@@ -1,17 +1,18 @@
 ﻿using ArtificialIntel.Repos.Entities;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace ArtificialIntel.Repos.Data
 {
     public static class ResponseContextSeeder
     {
-        public static void SeedData(IMongoCollection<WorkspaceEntity> entityCollection)
+        public async static void SeedData(IMongoCollection<WorkspaceEntity> entityCollection)
         {
             bool exist = entityCollection.Find(e => true).Any();
 
             if (!exist)
             {
-                entityCollection.InsertManyAsync(GetEntities());
+                await entityCollection.InsertManyAsync(GetEntities());
             }
         }
 
@@ -21,14 +22,14 @@ namespace ArtificialIntel.Repos.Data
             {
                 new WorkspaceEntity()
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = ObjectId.GenerateNewId().ToString(),
                     Topic = "Topic 1",
                     SubTopics = new List<string> { "Subtopic1", "Subtopic2", "Subtopic3", "Subtopic4", "Subtopic5"},
                     Authors = new List<Author>
                     {
                         new Author
                         {
-                            Id = Guid.NewGuid().ToString(),
+                            Id = ObjectId.GenerateNewId().ToString(),
                             Name = "author1",
                             Description = "Description",
                             Url = "url here2ee",
@@ -36,7 +37,7 @@ namespace ArtificialIntel.Repos.Data
                         },
                          new Author
                         {
-                            Id = Guid.NewGuid().ToString(),
+                            Id = ObjectId.GenerateNewId().ToString(),
                             Name = "author2",
                             Description = "Description21312",
                             Url = "url here2qq",
@@ -46,7 +47,7 @@ namespace ArtificialIntel.Repos.Data
                     {
                         new Discussion
                         {
-                            Id = Guid.NewGuid().ToString(),
+                            Id = ObjectId.GenerateNewId().ToString(),
                             Name = "Discussion111",
                             Description = "Description24121",
                             Url = "url here2",
@@ -54,7 +55,7 @@ namespace ArtificialIntel.Repos.Data
 
                         new Discussion
                         {
-                            Id = Guid.NewGuid().ToString(),
+                            Id = ObjectId.GenerateNewId().ToString(),
                             Name = "Discussion244",
                             Description = "Description2123",
                             Url = "url here2123",
@@ -64,14 +65,14 @@ namespace ArtificialIntel.Repos.Data
                     {
                         new()
                         {
-                            Id = Guid.NewGuid().ToString(),
+                            Id = ObjectId.GenerateNewId().ToString(),
                             Name = "Material1",
                             Description = "Description2123",
                             Url = "url here2",
                         },
                         new()
                         {
-                            Id = Guid.NewGuid().ToString(),
+                            Id =  ObjectId.GenerateNewId().ToString(),
                             Name = "Material2",
                             Description = "Description213",
                             Url = "url here21",
