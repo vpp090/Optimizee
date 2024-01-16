@@ -1,19 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Optimal.API.Contracts;
 using Optimal.API.Entities;
+using OptimalPackage.Models;
 using System.Net;
 
 namespace Optimal.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OptimalController : ControllerBase
+    public class OptimalController : BaseApiController
     {
-        private readonly IApiSender _apiSender;
+        private readonly IApiPublisher _apiPublisher;
         
-        public OptimalController(IApiSender apiSender)
+        public OptimalController(IApiPublisher publisher)
         {
-            _apiSender = apiSender;
+            _apiPublisher = publisher;
         }
 
         [Route("[action]")]
@@ -23,15 +24,20 @@ namespace Optimal.API.Controllers
         public async Task<ActionResult<ServiceResponseR.ServiceResponse<BaseResponse>>> SendOptimalRequest([FromBody] IntroRequest request)
         {
 
-            var result = await _apiSender.SendAsync(request);
+            var result = await _apiPublisher.SendAsync(request);
 
-            if (result == null)
-                return BadRequest();
+            return HandleResult(result);
+        }
 
-            if (result.Error != null)
-                return BadRequest(result.Error.ToString());
+        [Route("[action]")]
+        [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.Accepted)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<ActionResult<ServiceResponseR.ServiceResponse<BaseResponse>>> SendCrossrefRequest([FromBody]SubTopicsRequest request)
+        {
+            var result = await _apiPublisher.SendAsync(request);
 
-            return Ok(result);
+            return HandleResult(result);
         }
     }
 }

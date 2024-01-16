@@ -3,6 +3,7 @@ using MassTransit;
 using OptimalPackage.Common;
 using SpecMapperR;
 using ArtificialIntel.Application.Extensions;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 
 namespace ArtificialIntel.API.Extensions
 {
@@ -10,8 +11,10 @@ namespace ArtificialIntel.API.Extensions
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration Configuration)
         {
-            services.RegisterAppServices();
+            services.AddHttpClient();
 
+            services.RegisterAppServices();
+            
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application.Extensions.ServiceExtensions).Assembly));
 
             services.AddScoped<ISpecialMapper, SpecialMapper>();
@@ -19,6 +22,7 @@ namespace ArtificialIntel.API.Extensions
             services.AddMassTransit(config =>
             {
                 config.AddConsumer<IntroRequestConsumer>();
+                config.AddConsumer<CrossrefRequestConsumer>();
 
                 config.UsingRabbitMq((ctx, cfg) =>
                 {
@@ -27,6 +31,11 @@ namespace ArtificialIntel.API.Extensions
                     cfg.ReceiveEndpoint(EventBusConstants.OptimalQueue, c =>
                     {
                         c.ConfigureConsumer<IntroRequestConsumer>(ctx);
+                    });
+
+                    cfg.ReceiveEndpoint(EventBusConstants.CrossrefQueue, c =>
+                    {
+                        c.ConfigureConsumer<CrossrefRequestConsumer>(ctx);
                     });
                 });
             });

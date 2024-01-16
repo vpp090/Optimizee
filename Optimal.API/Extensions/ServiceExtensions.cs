@@ -9,7 +9,7 @@ namespace Optimal.API.Extensions
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration Configuration)
         {
-            services.AddScoped<IApiSender, ApiSender>();
+            services.AddScoped<IApiPublisher, ApiPublisher>();
             services.AddScoped<ISpecialMapper, SpecialMapper>();
 
             services.AddMassTransit(config =>

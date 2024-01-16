@@ -1,4 +1,5 @@
-﻿using ArtificialIntel.Repos.Contracts;
+﻿using Amazon.Runtime.SharedInterfaces;
+using ArtificialIntel.Repos.Contracts;
 using ArtificialIntel.Repos.Data;
 using ArtificialIntel.Repos.Repositories;
 using ArtificialIntel.Services.AppServices;
@@ -14,6 +15,7 @@ namespace ArtificialIntel.Application.Extensions
             services.AddScoped<IResponseContext, ResponseContext>();
             services.AddScoped<IOptimalRepo, OptimalRepository>();
             services.AddScoped<IGptService, GptService>();
+            services.AddScoped<ICrossrefService, CrossrefService>();
 
             return services;
         }
