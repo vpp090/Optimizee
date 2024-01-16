@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace ArtificialIntel.Application.Entities
     public class CrossrefResponse
     {
         public string Status { get; set; }
+        [JsonProperty("message-type")]
         public string MessageType { get; set; }
         public Message Message { get; set; }
     }
@@ -37,7 +39,8 @@ namespace ArtificialIntel.Application.Entities
 
         public Resource Resource { get; set; }
 
-        public List<Author> Author { get; set; }
+        [JsonProperty("author")]
+        public List<Author> Authors { get; set; }
 
         public string URL { get; set; }
     }
@@ -55,6 +58,8 @@ namespace ArtificialIntel.Application.Entities
     public class Author
     {
         public string Name { get; set; }
+        public string Given { get; set; }
+        public string Family { get; set; }
         public string Sequence { get; set; }
         public List<string> Affiliation { get; set; }
     }

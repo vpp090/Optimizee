@@ -1,5 +1,6 @@
 ﻿using ArtificialIntel.Application.Entities;
 using ArtificialIntel.Application.Features.Commands.CrossrefSender;
+using ArtificialIntel.Application.Features.Commands.ResponseWriter;
 using MassTransit;
 using MediatR;
 using Newtonsoft.Json;
@@ -32,14 +33,9 @@ namespace ArtificialIntel.API.Consumers
 
             var result = await _mediator.Send(command);
 
-            var list = new List<CrossrefResponse>();
-
-            foreach(var res in result)
-            {
-                list.Add(JsonConvert.DeserializeObject<CrossrefResponse>(res));
-            }
-
-            //var writeCommand = new ResponseWriterCommand { Result = result };
+            var deserializedResult = result.Select(JsonConvert.DeserializeObject<CrossrefResponse>);
+           
+            var writeCommand = new ResponseWriterCommand { Result = result };
 
             //await _mediator.Send(writeCommand);
         }
