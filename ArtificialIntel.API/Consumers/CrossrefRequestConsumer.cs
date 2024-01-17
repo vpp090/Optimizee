@@ -2,11 +2,13 @@
 using ArtificialIntel.Application.Features.Commands.CrossrefSender;
 using ArtificialIntel.Application.Features.Commands.ResponseWriter;
 using MassTransit;
+using MassTransit.RabbitMqTransport;
 using MediatR;
 using Newtonsoft.Json;
 using OptimalPackage.Events;
 using OptimalPackage.Models;
 using SpecMapperR;
+using IPublisher = MassTransit.RabbitMqTransport.IPublisher;
 
 namespace ArtificialIntel.API.Consumers
 {
@@ -15,14 +17,17 @@ namespace ArtificialIntel.API.Consumers
         private readonly IMediator _mediator;
         private readonly ISpecialMapper _mapper;
         private readonly ILogger<CrossrefRequestConsumer> _logger;
+        private readonly IPublisher _publisher;
 
         public CrossrefRequestConsumer(IMediator mediator, 
                                        ISpecialMapper mapper, 
-                                       ILogger<CrossrefRequestConsumer> logger) 
+                                       ILogger<CrossrefRequestConsumer> logger,
+                                       IPublisher publisher) 
         {
             _mediator = mediator;
             _mapper = mapper;
             _logger = logger;
+            _publisher = publisher;
         }
         public async Task Consume(ConsumeContext<CrossrefEvent> context)
         {
@@ -37,6 +42,7 @@ namespace ArtificialIntel.API.Consumers
            
             var writeCommand = new ResponseWriterCommand { Result = result };
 
+            
             //await _mediator.Send(writeCommand);
         }
     }
