@@ -17,17 +17,17 @@ namespace ArtificialIntel.API.Consumers
         private readonly IMediator _mediator;
         private readonly ISpecialMapper _mapper;
         private readonly ILogger<CrossrefRequestConsumer> _logger;
-        private readonly IPublisher _publisher;
+        private readonly IPublishEndpoint _publishEndpoint;
 
         public CrossrefRequestConsumer(IMediator mediator, 
                                        ISpecialMapper mapper, 
                                        ILogger<CrossrefRequestConsumer> logger,
-                                       IPublisher publisher) 
+                                       IPublishEndpoint publishEndpoint) 
         {
             _mediator = mediator;
             _mapper = mapper;
             _logger = logger;
-            _publisher = publisher;
+            _publishEndpoint = publishEndpoint;
         }
         public async Task Consume(ConsumeContext<CrossrefEvent> context)
         {
