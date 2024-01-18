@@ -4,6 +4,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./layout/home/home";
 import Topic from "./layout/topic/topic";
 import Subtopics from "./layout/subtopics/subtopics";
+import Workspace from "./layout/workspace/workspace";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/topic" element={<Topic />} />
         <Route path="/subtopics" element={<Subtopics />} />
+        <Route path="/workspace" element={<Workspace />} />
       </Routes>
     </Router>
   );

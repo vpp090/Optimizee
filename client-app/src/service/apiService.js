@@ -14,3 +14,25 @@ export const sendTopic = async (topic) => {
     console.log(error);
   }
 };
+
+export const sendCrossrefRequest = async (subtopic, rows, offset) => {
+  try {
+    if (rows) rows = 10;
+    if (offset) offset = 1;
+
+    const data = {
+      subTopics: [subtopic],
+      rows: rows,
+      offset: offset,
+    };
+
+    const response = await axios.post(
+      `${API_BASE_URL}/api/Optimal/SendCrossrefRequest`,
+      data
+    );
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

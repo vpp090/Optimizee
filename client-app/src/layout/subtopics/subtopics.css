@@ -1,12 +1,13 @@
 /* Subtopics.css */
 .subtopic-box {
-  background-color: #d3d3d3; /* Light grey background */
+  background-color: #d3d3d3;
   padding: 15px;
   border-radius: 5px;
-  margin-bottom: 10px; /* Add some space between the boxes */
-  opacity: 0; /* Start with opacity 0 */
+  margin-bottom: 10px;
+  opacity: 0;
   transform: scale(0.9);
-  transition: opacity 1s ease, transform 1s ease; /* Transition for fade-in and scale */
+  transition: opacity 1s ease, transform 1s ease;
+  cursor: pointer;
 }
 
 .visible {
@@ -16,4 +17,8 @@
 
 .new-cont {
   align-items: center;
+}
+
+.selected {
+  background-color: #a1caf1;
 }
