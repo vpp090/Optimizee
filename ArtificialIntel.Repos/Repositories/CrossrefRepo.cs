@@ -1,5 +1,5 @@
 ﻿using ArtificialIntel.Repos.Contracts;
- using ArtificialIntel.Domain.Entities;
+using App.Domain.Entities;
 using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json;
 

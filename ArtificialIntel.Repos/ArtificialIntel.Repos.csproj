@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ArtificialIntel.Domain\ArtificialIntel.Domain.csproj" />
+    <ProjectReference Include="..\CommonPackages\App.Domain\App.Domain.csproj" />
   </ItemGroup>
 
 </Project>

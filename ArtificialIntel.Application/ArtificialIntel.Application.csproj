@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ArtificialIntel.Repos\ArtificialIntel.Repos.csproj" />
     <ProjectReference Include="..\ArtificialIntel.Services\ArtificialIntel.Services.csproj" />
+    <ProjectReference Include="..\CommonPackages\App.Domain\App.Domain.csproj" />
   </ItemGroup>
 
 </Project>

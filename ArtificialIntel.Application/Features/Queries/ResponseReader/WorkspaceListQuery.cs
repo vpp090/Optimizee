@@ -1,4 +1,4 @@
-﻿using ArtificialIntel.Domain.Entities;
+﻿using App.Domain.Entities;
 using MediatR;
 
 namespace ArtificialIntel.Application.Features.Queries.ResponseReader

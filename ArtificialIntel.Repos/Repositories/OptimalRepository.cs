@@ -1,6 +1,6 @@
 ﻿using ArtificialIntel.Repos.Contracts;
 using ArtificialIntel.Repos.Data;
- using ArtificialIntel.Domain.Entities;
+ using App.Domain.Entities;
 using MongoDB.Bson;
 using MongoDB.Driver;
 

@@ -1,5 +1,5 @@
 ﻿using ArtificialIntel.Application.Entities;
-using ArtificialIntel.Domain.Entities;
+using App.Domain.Entities;
 using MediatR;
 
 

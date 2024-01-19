@@ -1,4 +1,4 @@
-﻿using ArtificialIntel.Domain.Entities;
+﻿using App.Domain.Entities;
 
 namespace ArtificialIntel.Repos.Contracts
 {

@@ -1,4 +1,4 @@
-﻿using ArtificialIntel.Domain.Entities;
+﻿using App.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 
