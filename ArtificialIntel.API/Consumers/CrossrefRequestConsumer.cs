@@ -31,7 +31,6 @@ namespace ArtificialIntel.API.Consumers
         }
         public async Task Consume(ConsumeContext<CrossrefEvent> context)
         {
-
             var request = context.Message.Request;
 
             var command = _mapper.MapProperties<CrossrefRequest, CrossrefSenderCommand>(request);
@@ -46,6 +45,10 @@ namespace ArtificialIntel.API.Consumers
             };
             
             await _mediator.Send(writeCommand);
+
+            var saved = new WorkspaceSavedRequest { DataSaved = true };
+
+            await _publishEndpoint.Publish(saved);
         }
     }
 }
