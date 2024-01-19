@@ -25,6 +25,7 @@ namespace ArtificialIntel.Application.Entities
 
     public class Item
     {
+        public Indexed Indexed { get; set; }
         public string Description { get; set; }
 
         [JsonProperty("reference-count")]
@@ -34,7 +35,6 @@ namespace ArtificialIntel.Application.Entities
         public string DOI { get; set; }
 
         public string Type { get; set; }
-        public DateTime TimeStamp { get; set; }
         public List<string> Title { get; set; }
 
         public Resource Resource { get; set; }
@@ -43,6 +43,12 @@ namespace ArtificialIntel.Application.Entities
         public List<Author> Authors { get; set; }
 
         public string URL { get; set; }
+    }
+
+    public class Indexed
+    {
+        [JsonProperty("date-time")]
+        public DateTime DateTime { get; set; }
     }
 
     public class Resource

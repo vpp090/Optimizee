@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace ArtificialIntel.Repos.Entities
+namespace ArtificialIntel.Domain.Entities
 {
     public class WorkspaceEntity
     {

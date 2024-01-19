@@ -1,4 +1,4 @@
-﻿using ArtificialIntel.Repos.Entities;
+﻿using ArtificialIntel.Domain.Entities;
 using MongoDB.Driver;
 
 namespace ArtificialIntel.Repos.Data

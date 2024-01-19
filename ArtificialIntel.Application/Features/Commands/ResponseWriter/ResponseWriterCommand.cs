@@ -1,11 +1,16 @@
-﻿using ArtificialIntel.Repos.Entities;
+﻿using ArtificialIntel.Application.Entities;
+using ArtificialIntel.Domain.Entities;
 using MediatR;
 
 
 namespace ArtificialIntel.Application.Features.Commands.ResponseWriter
 {
-    public class ResponseWriterCommand : IRequest<IEnumerable<WorkspaceEntity>>
+    public class ResponseWriterCommand : IRequest<bool>
     {
-        public IEnumerable<string> Result { get; set; }
+        public IEnumerable<CrossrefResponse> Result { get; set; }
+
+        public string RequestId { get; set; }
+
+        public string SubTopic { get; set; }
     }
 }

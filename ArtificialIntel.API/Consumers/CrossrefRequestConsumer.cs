@@ -40,10 +40,12 @@ namespace ArtificialIntel.API.Consumers
 
             var deserializedResult = result.Select(JsonConvert.DeserializeObject<CrossrefResponse>);
            
-            var writeCommand = new ResponseWriterCommand { Result = result };
-
+            var writeCommand = new ResponseWriterCommand { Result = deserializedResult, 
+                                                           RequestId = context.Message.Request.RequestId,
+                                                           SubTopic = request.SubTopics.FirstOrDefault()
+            };
             
-            //await _mediator.Send(writeCommand);
+            await _mediator.Send(writeCommand);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ArtificialIntel.API.Extensions
         {
             services.AddHttpClient();
 
-            services.RegisterAppServices();
+            services.RegisterAppServices(Configuration);
             
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application.Extensions.ServiceExtensions).Assembly));
 

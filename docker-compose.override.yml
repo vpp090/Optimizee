@@ -8,6 +8,14 @@ services:
     ports:
          - "5672:5672"
          - "15672:15672"
+ 
+  redisdb:
+     container_name: redisdb
+     restart: always
+     ports:
+         - "6379:6379"
+     volumes:
+       - redis_data:/data
 
   workspacedb:
     container_name: workspacedb
@@ -35,4 +43,7 @@ services:
       - workspacedb
     ports:
       - "8001:80"
+  
+  
+  
 

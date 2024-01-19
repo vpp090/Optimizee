@@ -9,7 +9,12 @@ namespace Optimal.API.Extensions
     public static class ServiceExtensions
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services, IConfiguration Configuration)
-        { 
+        {
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = Configuration["Redis:ConnectionString"];
+            });
+
             services.AddScoped<IApiPublisher, ApiPublisher>();
             services.AddScoped<ISpecialMapper, SpecialMapper>();
 

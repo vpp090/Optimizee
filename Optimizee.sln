@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtificialIntel.Repos", "Ar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtificialIntel.Services", "ArtificialIntel.Services\ArtificialIntel.Services.csproj", "{4D0ED6E9-0183-410A-9FAC-7183399445AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtificialIntel.Domain", "ArtificialIntel.Domain\ArtificialIntel.Domain.csproj", "{E0C3990D-0192-4497-A966-C71949DF3F7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{4D0ED6E9-0183-410A-9FAC-7183399445AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D0ED6E9-0183-410A-9FAC-7183399445AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D0ED6E9-0183-410A-9FAC-7183399445AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C3990D-0192-4497-A966-C71949DF3F7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C3990D-0192-4497-A966-C71949DF3F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C3990D-0192-4497-A966-C71949DF3F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C3990D-0192-4497-A966-C71949DF3F7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{5BEF6CB3-0FF0-42CD-BD52-0A3AAF889029} = {E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}
 		{110F966C-7AE7-4840-9783-7CE543DA1BBE} = {E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}
 		{4D0ED6E9-0183-410A-9FAC-7183399445AE} = {E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}
+		{E0C3990D-0192-4497-A966-C71949DF3F7D} = {E60AF011-6B6F-4025-A3E3-DB4058DD3FC5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CC73431-D978-4F6B-A674-B2B6C4A80627}
