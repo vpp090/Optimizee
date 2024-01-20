@@ -6,12 +6,15 @@ import Materials from "./materials";
 import Note from "../notes/Note";
 import "./item-box.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Subtopics from "../subtopics/subtopics";
 
 export default function Workspace() {
   const [authorsData, setAuthors] = useState([]);
   const [materialsData, setMaterials] = useState([]);
   const [connection, setConnection] = useState(null);
   const [notes, setNotes] = useState([]);
+  const [topic, setTopic] = useState("");
+  const [subtop, setSubTop] = useState("");
 
   const handleAddNote = () => {
     setNotes([...notes, "New note"]);
@@ -32,6 +35,9 @@ export default function Workspace() {
   useEffect(() => {
     const savedAuthors = localStorage.getItem("authorsData");
     const savedMaterials = localStorage.getItem("materialsData");
+
+    setTopic(localStorage.getItem("maintopic"));
+    setSubTop(localStorage.getItem("subtopic"));
 
     if (savedAuthors && savedMaterials) {
       setAuthors(JSON.parse(savedAuthors));
@@ -61,13 +67,13 @@ export default function Workspace() {
     <div className="container">
       <div className="row workspace-box">
         <div className="col-md-12 text-start">
-          <h2>Your research topic: insert-topic-here</h2>
+          <h2>Your research topic: {topic}</h2>
         </div>
       </div>
       <div className="row workspace-box text-start mt-4">
         <div className="com-md-12">
           <h3>Subtopics: </h3>
-          <h4> subtopics here</h4>
+          <h4> {subtop}</h4>
         </div>
       </div>
       <div className="row mt-4">

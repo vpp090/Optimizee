@@ -26,8 +26,8 @@ const Subtopics = () => {
     try {
       const guid = uuidv4();
 
+      localStorage.setItem("subtopic", selectedSubtopic);
       const data = await sendCrossrefRequest(selectedSubtopic, 10, 1, guid);
-      console.log(data);
 
       navigate("/workspace"), { state: { data } };
     } catch (error) {

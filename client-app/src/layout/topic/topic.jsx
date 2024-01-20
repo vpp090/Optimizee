@@ -9,6 +9,7 @@ export default function Topic() {
 
   const handleInputChange = (event) => {
     setTopic(event.target.value);
+    localStorage.setItem("maintopic", event.target.value);
   };
 
   const handleSubmit = async (e) => {
