@@ -1,4 +1,9 @@
+using Microsoft.VisualBasic;
+using Optimal.API.Constants;
+using Optimal.API.Controllers;
 using Optimal.API.Extensions;
+using Optimal.API.SignalR;
+using System.Net.WebSockets;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +20,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddSignalR();
 builder.Services.RegisterServices(builder.Configuration);
 
 builder.Services.AddControllers();
@@ -34,8 +40,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseCors("ReactCors");
 
+app.MapHub<DataHub>(OptimalConstants.SignalRPattern);
 app.MapControllers();
 
 app.Run();

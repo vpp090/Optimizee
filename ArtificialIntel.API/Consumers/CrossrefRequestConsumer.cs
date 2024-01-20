@@ -46,9 +46,13 @@ namespace ArtificialIntel.API.Consumers
             
             await _mediator.Send(writeCommand);
 
-            var saved = new WorkspaceSavedRequest { DataSaved = true };
+            var saved = new WorkspaceSavedRequest { 
+                    DataSaved = true, 
+                    AuthorsKey = $"authors_{request.SubTopics.FirstOrDefault()}_{request.RequestId}",
+                    MaterialsKey = $"materials_{request.SubTopics.FirstOrDefault()}_{request.RequestId}"
+            };
 
-            await _publishEndpoint.Publish(saved);
+            await _publishEndpoint.Publish(new WorkspaceSavedEvent {  WorkspaceSavedRequest = saved });
         }
     }
 }
