@@ -1,9 +1,7 @@
-using Microsoft.VisualBasic;
 using Optimal.API.Constants;
-using Optimal.API.Controllers;
 using Optimal.API.Extensions;
 using Optimal.API.SignalR;
-using System.Net.WebSockets;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +14,8 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins("http://localhost:5173")
            .AllowAnyMethod()
-           .AllowAnyHeader();
+           .AllowAnyHeader()
+           .AllowCredentials();
     });
 });
 

@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import "./subtopics.css"; // Ensure this path is correct
 import { useNavigate } from "react-router-dom";
 import { sendCrossrefRequest } from "../../service/apiService";
+import { v4 as uuidv4 } from "uuid";
 
 const Subtopics = () => {
-  const subtopics = ["First Topic", "Second Topic", "Third Topic"];
+  const subtopics = ["Business", "Economics", "Investment"];
   const [visibleIndex, setVisibleIndex] = useState(-1);
   const [selectedSubtopic, setSelectedSubtopic] = useState(null);
   const navigate = useNavigate();
@@ -14,13 +15,18 @@ const Subtopics = () => {
   };
 
   const handleButtonClick = async () => {
+    localStorage.removeItem("authorsData");
+    localStorage.removeItem("materialsData");
+
     if (!selectedSubtopic) {
       alert("Please select one subtopic");
       return;
     }
 
     try {
-      const data = await sendCrossrefRequest(selectedSubtopic, 10, 1);
+      const guid = uuidv4();
+
+      const data = await sendCrossrefRequest(selectedSubtopic, 10, 1, guid);
       console.log(data);
 
       navigate("/workspace"), { state: { data } };

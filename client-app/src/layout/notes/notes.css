@@ -1,0 +1,12 @@
+.sticky-note {
+  padding: 10px;
+  background-color: #fcf4a3;
+  margin-bottom: 10px;
+  height: 8em;
+}
+
+.note-textarea {
+  width: 100%;
+  border: none;
+  background-color: #fcf4a3;
+}

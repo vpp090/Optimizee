@@ -15,7 +15,12 @@ export const sendTopic = async (topic) => {
   }
 };
 
-export const sendCrossrefRequest = async (subtopic, rows, offset) => {
+export const sendCrossrefRequest = async (
+  subtopic,
+  rows,
+  offset,
+  requestId
+) => {
   try {
     if (rows) rows = 10;
     if (offset) offset = 1;
@@ -24,6 +29,7 @@ export const sendCrossrefRequest = async (subtopic, rows, offset) => {
       subTopics: [subtopic],
       rows: rows,
       offset: offset,
+      requestId: requestId,
     };
 
     const response = await axios.post(

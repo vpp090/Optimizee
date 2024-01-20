@@ -2,6 +2,7 @@
 using Optimal.API.Contracts;
 using Optimal.API.Entities;
 using OptimalPackage.Models;
+using ServiceResponseR;
 using System.Net;
 
 namespace Optimal.API.Controllers
@@ -11,10 +12,12 @@ namespace Optimal.API.Controllers
     public class OptimalController : BaseApiController
     {
         private readonly IApiPublisher _apiPublisher;
+        private readonly IRedisRepo _redisRepo;
         
-        public OptimalController(IApiPublisher publisher)
+        public OptimalController(IApiPublisher publisher, IRedisRepo redisRepo)
         {
             _apiPublisher = publisher;
+            _redisRepo = redisRepo;
         }
 
         [Route("[action]")]

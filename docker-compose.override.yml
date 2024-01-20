@@ -30,6 +30,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "Redis:ConnectionString=redisdb:6379"
     ports:
       - "8000:80"
 
@@ -39,6 +40,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - "DatabaseSettings:ConnectionString=mongodb://workspacedb:27017"
       - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "Redis:ConnectionString=redisdb:6379"
     depends_on:
       - workspacedb
     ports:

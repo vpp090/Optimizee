@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Caching.Distributed;
 using Optimal.API.Constants;
 using Optimal.API.Contracts;
+using Optimal.API.Entities;
 using Optimal.API.SignalR;
 using OptimalPackage.Events;
 
@@ -31,7 +32,11 @@ namespace Optimal.API.Consumers
 
                 var materials = await _repo.GetDataFromRedisAsync(context.Message.WorkspaceSavedRequest.MaterialsKey);
 
-                await _hubContext.Clients.All.SendAsync(OptimalConstants.SignalRMethod, authors, materials);
+                await _hubContext.Clients.All.SendAsync(OptimalConstants.SignalRMethod, 
+                        new WorkspaceSavedResponse {  
+                            Authors = authors, 
+                            Materials = materials
+                        });
             }
             catch (Exception ex)
             {
