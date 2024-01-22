@@ -92,15 +92,17 @@ export default function Workspace() {
             </div>
             <div className="col-md-10"></div>
           </div>
-          <div className="notes-section mt-3">
-            {notes.map((note, index) => (
-              <Note
-                key={index}
-                note={note}
-                onChange={handleNoteChange}
-                index={index}
-              />
-            ))}
+          <div className="col-md-12">
+            <div className="notes-section mt-3">
+              {notes.map((note, index) => (
+                <Note
+                  key={index}
+                  note={note}
+                  onChange={handleNoteChange}
+                  index={index}
+                />
+              ))}
+            </div>
           </div>
         </div>
         <div className="col-md-3 workspace-box">

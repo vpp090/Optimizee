@@ -2,4 +2,6 @@
   border: solid 0.8px grey;
   border-radius: 10px;
   padding: 1%;
+  overflow-y: auto;
+  max-height: 80em;
 }

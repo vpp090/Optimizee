@@ -13,18 +13,23 @@ namespace Optimal.API.Consumers
     {
         private readonly IRedisRepo _repo;
         private readonly IHubContext<DataHub> _hubContext;
+        private readonly ILogger<WorkspaceSavedConsumer> _logger;
 
         public WorkspaceSavedConsumer(IRedisRepo repo, 
-                                      IHubContext<DataHub> hubContext)
+                                      IHubContext<DataHub> hubContext,
+                                      ILogger<WorkspaceSavedConsumer> logger)
         {
             _repo = repo;
             _hubContext = hubContext;
+            _logger = logger;
         }
 
         public async Task Consume(ConsumeContext<WorkspaceSavedEvent> context)
         {
             try
             {
+                _logger.LogInformation("message_received_QQ");
+
                 if (!context.Message.WorkspaceSavedRequest.DataSaved)
                     throw new DataMisalignedException("Data_not_saved");
 
@@ -32,15 +37,20 @@ namespace Optimal.API.Consumers
 
                 var materials = await _repo.GetDataFromRedisAsync(context.Message.WorkspaceSavedRequest.MaterialsKey);
 
+                _logger.LogInformation(authors);
+                _logger.LogInformation(materials);
+
                 await _hubContext.Clients.All.SendAsync(OptimalConstants.SignalRMethod, 
                         new WorkspaceSavedResponse {  
                             Authors = authors, 
                             Materials = materials
                         });
+
+                _logger.LogInformation("message_sent_QQ");
             }
             catch (Exception ex)
             {
-                //log exception here
+                _logger.LogError(ex.ToString());
             }
         }
     }

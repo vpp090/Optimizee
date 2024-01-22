@@ -10,19 +10,32 @@ namespace ArtificialIntel.API.Consumers
     {
         private readonly MediatR.IMediator _mediator;
         private readonly ISpecialMapper _mapper;
+        private readonly ILogger<IntroRequestConsumer> _logger;
 
-        public IntroRequestConsumer(MediatR.IMediator mediator, ISpecialMapper mapper)
+        public IntroRequestConsumer(MediatR.IMediator mediator, 
+                                    ISpecialMapper mapper, 
+                                    ILogger<IntroRequestConsumer> logger)
         {
             _mediator = mediator;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task Consume(ConsumeContext<OptimalEvent> context)
         {
-            var command = _mapper.MapProperties<OptimalRequest, AISenderCommand>(context.Message.Request);
+            try
+            {
+                _logger.LogInformation(context.Message.Request.ToString());
 
-            var response = await _mediator.Send(command);
-            await _mediator.Send(response);
+                var command = _mapper.MapProperties<OptimalRequest, AISenderCommand>(context.Message.Request);
+
+                //var response = await _mediator.Send(command);
+                //await _mediator.Send(response);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+            }
         }
     }
 }

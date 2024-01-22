@@ -1,9 +1,10 @@
 // signalRService.js
 import * as signalR from "@microsoft/signalr";
+import API_BASE_URL from "./constants";
 
 const startConnection = (onReceiveData) => {
   const connection = new signalR.HubConnectionBuilder()
-    .withUrl("http://localhost:8000/datahub")
+    .withUrl(`${API_BASE_URL}/datahub`)
     .build();
 
   connection

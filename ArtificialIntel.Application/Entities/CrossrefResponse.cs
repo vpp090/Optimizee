@@ -67,6 +67,6 @@ namespace ArtificialIntel.Application.Entities
         public string Given { get; set; }
         public string Family { get; set; }
         public string Sequence { get; set; }
-        public List<string> Affiliation { get; set; }
+       // public List<string> Affiliation { get; set; }
     }
 }

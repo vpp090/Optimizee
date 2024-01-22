@@ -23,7 +23,7 @@ namespace ArtificialIntel.Repos.Data
 
             WorkspaceEntities = database.GetCollection<WorkspaceEntity>(_configuration["DatabaseSettings:CollectionName"]);
 
-            ResponseContextSeeder.SeedData(WorkspaceEntities);
+            //ResponseContextSeeder.SeedData(WorkspaceEntities);
         }
         public IMongoCollection<WorkspaceEntity> WorkspaceEntities { get; set; }
     }
